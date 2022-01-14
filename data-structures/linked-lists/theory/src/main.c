@@ -22,5 +22,7 @@ int main(int argc, char **argv)
     new_node->next = head;
     head = new_node;
 
+    printf("new_node->item: %d\n", new_node->item);
+
   return 0;
 }
