@@ -12,45 +12,54 @@ struct node
   struct node *next;
 };
 
-/* add a new node by reference */
-static struct node *add_node(struct node **list, int value)
+/* delete()
+ * display()
+ * insert()
+ * search()
+ * update()
+ * */
+
+static struct node *display(struct node *list)
 {
-    struct node *new_node = NULL;
+  struct node *d = NULL;
+  d = list;
 
-    if((new_node = malloc(sizeof(struct node))) == NULL)
-    {
-      exit(EXIT_FAILURE);
-    }
+  printf("-> %d\n", d->item);
+}
 
-    new_node->item = value;
-    new_node->next = *list;
+static struct node *insert(struct node **list, int value)
+{
+  struct node *new_node = NULL;
 
-    *list = new_node;
+  if((new_node = malloc(sizeof(struct node))) == NULL)
+  {
+    exit(EXIT_FAILURE);
+  }
+
+  new_node->item = value;
+  new_node->next = *list;
+
+  *list = new_node;
 }
 
 int main(int argc, char **argv)
 {
-    struct node *head = NULL;
-    if((head = malloc(sizeof(struct node))) == NULL)
-      exit(EXIT_FAILURE);
+  int value = 0;
+  struct node *head = NULL;
 
-    struct node *new_node = NULL;
-    if((new_node = malloc(sizeof(struct node))) == NULL)
-      exit(EXIT_FAILURE);
+  if((head = malloc(sizeof(struct node))) == NULL)
+    exit(EXIT_FAILURE);
 
-    add_node(&head, 2);
+  insert(&head, 2);
+  display(head);
 
-    /*
-    (*new_node).item = 30;
+  insert(&head, 20);
+  display(head);
 
-    new_node->next = head;
-    head = new_node;
-    */
+  printf("Insert: ");
+  scanf("%d", &value);
 
-    printf("new_node->item: %d\n", head->item);
-
-    add_node(&head, 20);
-    printf("new_node->item: %d\n", head->item);
+  printf("You entered: %d\n", value);
 
   return 0;
 }
