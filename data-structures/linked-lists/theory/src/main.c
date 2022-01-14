@@ -24,6 +24,7 @@ static struct node *add_node(struct node **list, int value)
 
     new_node->item = value;
     new_node->next = *list;
+
     *list = new_node;
 }
 
