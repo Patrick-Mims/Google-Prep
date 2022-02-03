@@ -37,9 +37,16 @@ void push(struct stackNode **stackTop, int value)
     *stackTop = newNode;
 }
 
+void pop(struct stackNode **stackTop)
+{
+    // start here
+}
+
 /*
  * isEmpty()
  * pop()
  * */
 
 #endif
+
+/* VSC Theme: Fodder Contrast (rainbow) */
