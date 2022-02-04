@@ -10,6 +10,7 @@ int main(int argc, char **argv)
 
   int count = 0, num = 0;
 
+  /* push onto the stack */
   do
   {
     printf("Enter an integer: ");
