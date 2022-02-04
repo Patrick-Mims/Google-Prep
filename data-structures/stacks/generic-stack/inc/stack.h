@@ -23,6 +23,7 @@ void display(struct stackNode *top)
     }
 }
 
+/* pushing onto the stack, again using double pointer */
 void push(struct stackNode **stackTop, int value)
 {
     struct stackNode *newNode = NULL;

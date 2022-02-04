@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 
   do
   {
-    printf("Enter a number: ");
+    printf("Enter an integer: ");
     scanf("%d", &num);
     push(&top, num);
     count = count + 1;
@@ -20,23 +20,12 @@ int main(int argc, char **argv)
 
   display(top);
 
+  /* pop off the stack */
   do
   {
     printf("Top of the new stack-> %d\n", top->data);
     pop(&top);
   } while (!isEmpty(top));
-
-  /*
-    pop(&top);
-
-    printf("after pop(1) top->data ->%d\n", top->data);
-
-    pop(&top);
-
-    printf("after pop(2) top->data ->%d\n", top->data);
-
-    pop(&top);
-    */
 
   return 0;
 }
