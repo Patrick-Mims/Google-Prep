@@ -42,7 +42,7 @@ void push(struct stackNode **stackTop, int value)
 void pop(struct stackNode **top)
 {
     struct stackNode *ptr = *top;
-    printf("Element Removed From the Stack->[%d]\n", ptr->data);
+    printf("\tElement Popped Stack->[%d]\n\n", ptr->data);
     ptr = ptr->nextPtr;
     *top = ptr;
 }
@@ -51,10 +51,6 @@ int isEmpty(struct stackNode *top)
 {
     return top == NULL;
 }
-
-/*
- * isEmpty()
- * */
 
 #endif
 
