@@ -24,7 +24,7 @@ void display(struct stackNode *top)
 }
 
 /* pushing onto the stack, again using double pointer */
-void push(struct stackNode **stackTop, int value)
+void push(struct stackNode **top, int value)
 {
     struct stackNode *newNode = NULL;
 
@@ -34,8 +34,8 @@ void push(struct stackNode **stackTop, int value)
     }
 
     newNode->data = value;
-    newNode->nextPtr = *stackTop;
-    *stackTop = newNode;
+    newNode->nextPtr = *top;
+    *top = newNode;
 }
 
 /* passing a double pointer allows the list to be returned after the pop */
