@@ -16,9 +16,27 @@ int main(int argc, char **argv)
     scanf("%d", &num);
     push(&top, num);
     count = count + 1;
-  } while (count <= 5);
+  } while (count <= 3);
 
   display(top);
+
+  do
+  {
+    printf("Top of the new stack-> %d\n", top->data);
+    pop(&top);
+  } while (!isEmpty(top));
+
+  /*
+    pop(&top);
+
+    printf("after pop(1) top->data ->%d\n", top->data);
+
+    pop(&top);
+
+    printf("after pop(2) top->data ->%d\n", top->data);
+
+    pop(&top);
+    */
 
   return 0;
 }

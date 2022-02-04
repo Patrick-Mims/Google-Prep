@@ -7,14 +7,14 @@ struct stackNode
     struct stackNode *nextPtr;
 };
 
-void display(struct stackNode *stackTop)
+void display(struct stackNode *top)
 {
-    if (stackTop != NULL)
+    if (top != NULL)
     {
-        while (stackTop != NULL)
+        while (top != NULL)
         {
-            printf("-> %d\n", stackTop->data);
-            stackTop = stackTop->nextPtr;
+            printf("-> %d\n", top->data);
+            top = top->nextPtr;
         }
     }
     else
@@ -37,14 +37,22 @@ void push(struct stackNode **stackTop, int value)
     *stackTop = newNode;
 }
 
-void pop(struct stackNode **stackTop)
+/* passing a double pointer allows the list to be returned after the pop */
+void pop(struct stackNode **top)
 {
-    // start here
+    struct stackNode *ptr = *top;
+    printf("Element Removed From the Stack->[%d]\n", ptr->data);
+    ptr = ptr->nextPtr;
+    *top = ptr;
+}
+
+int isEmpty(struct stackNode *top)
+{
+    return top == NULL;
 }
 
 /*
  * isEmpty()
- * pop()
  * */
 
 #endif
