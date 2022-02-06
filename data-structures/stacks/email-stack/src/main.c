@@ -23,7 +23,11 @@ int main(int argc, char **argv)
     push(&top, address);
   }
 
-  display(top);
+  while(!isEmpty(top))
+  {
+    pop(&top);
+    display(top);
+  }
 
   return 0;
 }
