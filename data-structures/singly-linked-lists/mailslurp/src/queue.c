@@ -4,6 +4,25 @@
 
 #include "queue.h"
 
+FILE *write_to_file(FILE **file)
+{
+  static int count = 0;
+
+  char buffer[23];
+  char *message = NULL;
+
+  strcpy(buffer,"write-to-file-> ");
+
+  message = buffer;
+
+  if((*file = fopen("data.txt", "w+")) == NULL)
+  {
+    exit(EXIT_FAILURE);
+  }
+
+  fprintf(*file, "%s", message);
+}
+
 void enqueue_data(struct node **queue, int value)
 {
   struct node *new_node = NULL;
@@ -11,8 +30,9 @@ void enqueue_data(struct node **queue, int value)
   if((new_node = malloc(sizeof(struct node))) == NULL)
     exit(EXIT_FAILURE);
 
-  new_node->data = value;
-  new_node->next = *queue;
+  /* An alternate way of accessing struct values */
+  (*new_node).data = value;
+  (*new_node).next = *queue;
 
   *queue = new_node;
 }
@@ -24,6 +44,8 @@ void enqueue_email(struct node **queue, FILE *file)
 
   if((file = fopen("email", "r")) == NULL)
     printf("Error Opening File");
+
+  printf("FILE is OPEN and WORKING\n");
 
   while (fscanf(file, "%s", item) != EOF)
   {
@@ -42,7 +64,7 @@ void enqueue_email(struct node **queue, FILE *file)
   fclose(file);
 }
 
-struct node *delete_data(struct node *queue, int n)
+struct node *delete_node(struct node *queue, int n)
 {
   struct node *current = NULL, *previous = NULL;
 
@@ -99,42 +121,3 @@ void display_data(struct node *queue)
     printf("-> %d\n", p->data);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
