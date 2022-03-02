@@ -68,8 +68,13 @@ struct node *delete_node(struct node *queue, int n)
 {
   struct node *current = NULL, *previous = NULL;
 
-  for(current = queue, previous; current != NULL && current->data != n; previous = current, current = current->next)
-    ;
+  current = queue;
+
+  while((current != NULL) && (current->data != n))
+  {
+    previous = current;
+    current = current->next;
+  }
 
   if(current == NULL)
     return queue;

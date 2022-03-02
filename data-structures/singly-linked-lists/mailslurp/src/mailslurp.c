@@ -64,6 +64,11 @@ int main(int main, char **argv)
   delete_email(head, "pmurray@cassin.com");
   display_email(head);
 
+  printf("removed next-> stehr.annie@gmail.com");
+
+  delete_email(head, "stehr.annie@gmail.com");
+  display_email(head);
+
   char emailaddress[30];
   char *ea = NULL;
   ea = emailaddress;
