@@ -13,12 +13,12 @@ void msg_debug(int *msg)
 void msg_debug_cstring(char *msg)
 {
     printf("value-> [%s]\n", msg);
-    strcpy(msg, "whitewoman");
+    strcpy(msg, "woman");
 }
 
 int main(int main, char **argv)
 {
-  FILE *fp, *w_t_f = NULL;
+  FILE *fp, *wtf = NULL;
   int value = 0;
   struct node *head = NULL;
 
@@ -83,7 +83,7 @@ int main(int main, char **argv)
 
   printf("Done!\n");
 
-  write_to_file(&w_t_f);
+  write_to_file(&wtf);
 
   //display_email(head);
 
